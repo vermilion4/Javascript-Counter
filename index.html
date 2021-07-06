@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1,
+  maximum-scale=5"
+    />
+    <title>Counter</title>
+    <style>
+        body{
+            background-image: url("wood.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: grid;
+            justify-content: center;
+            height: 100%;
+        }
+        #one{
+            display: block;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #0d2c54;
+            color: white;
+            border-style: none;
+            margin: auto;
+            box-shadow: 2px 3px 8px black
+        }
+        #two{
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #0d2c54;
+            color: white;
+            border-style: none;
+            box-shadow: 2px 3px 8px black;
+        }
+
+        .container{
+            border: 2px solid white;
+            width: 350px;
+            height: 450px;
+            text-align: center;
+            margin: 20vh auto 20vh auto;
+            box-shadow: 0px 8px 12px 0px black;
+        }
+        h1{
+            color: white;
+            padding-top: 30px;
+        }
+        #counter{
+            font-size: 130px;
+            color: white;
+            margin-bottom: 30px;
+        }
+        @media (min-width: 700px){
+            .container{
+                width: 500px;
+                margin-bottom: 40vh;
+                margin-top: 40vh;
+            }
+            .buttons{
+                display: flex;
+                margin-top: 15%;
+                justify-content: space-evenly;
+            }
+            #two,#one{
+                margin-top: 0px;
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="mess"></div>
+<div class="container">
+    <h1>COUNTER</h1>
+    <div id="counter">0</div>
+    <div class="buttons">
+        <div><button id="one">LOWER COUNT</button></div>
+        <div><button id="two">ADD COUNT</button></div>
+    </div>
+
+</div>
+
+<script>
+
+
+
+    let sub = document.getElementById("one");
+    let add = document.getElementById("two");
+    let count = 0;
+    let min = 0;
+    let max = 50;
+
+    let text = document.getElementById("mess")
+
+    add.addEventListener("click",()=>{
+
+        if(count < max){
+            count+=1
+            document.getElementById("counter").innerHTML = count;
+        }
+        if(count > min){
+            document.getElementById("counter").style.color = "green";
+        }
+        if(count === max){
+             text.innerHTML = "YOU HAVE REACHED THE MAXIMUM NUMBER";
+                    text.style.color = "red";
+                    text.style.marginTop = "50px";
+                    text.style.fontSize = "22px";
+                    text.style.textAlign = "center"
+
+            setTimeout(function(){
+                text.innerHTML = '';
+            }, 1000);
+
+        }
+        else if(count == min){
+            document.getElementById("counter").style.color = "white";
+        }
+    })
+
+    sub.addEventListener("click",()=>{
+
+        if(count>min) {
+            count -= 1;
+            document.getElementById("counter").innerHTML = count;
+        }
+        if(count === min){
+            text.innerHTML = "YOU HAVE REACHED THE MINIMUM NUMBER";
+            text.style.color = "red";
+            text.style.marginTop = "50px";
+            text.style.fontSize = "22px";
+            text.style.textAlign = "center"
+
+            setTimeout(function(){
+                text.innerHTML = '';
+            }, 1000);
+
+        }
+
+        if(count == min){
+            document.getElementById("counter").style.color = "white";
+        }
+    })
+
+</script>
+</body>
+</html>
