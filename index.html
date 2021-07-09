@@ -154,7 +154,7 @@
             }, 1000);
 
         }
-        else if(count == min){
+        if(count == min){
             document.getElementById("counter").style.color = "white";
         }
     })
@@ -170,7 +170,6 @@
             text.style.color = "red";
             text.style.marginTop = "50px";
             text.style.fontSize = "22px";
-            text.style.textAlign = "center"
 
             setTimeout(function(){
                 text.innerHTML = '';
